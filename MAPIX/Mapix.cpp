@@ -454,7 +454,7 @@ bool Mapix::logout()
 	{
 		clearCommonObjects();
 		clearAllObjects();
-		result = m_lpSession->Logoff(NULL, MAPI_LOGOFF_SHARED, 0);
+		result = m_lpSession->Logoff(NULL, 0, 0);
 		if(result == S_OK)
 			m_lpSession->Release();
 		MAPIUninitialize();
