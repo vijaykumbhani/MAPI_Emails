@@ -54,13 +54,13 @@ Note: Here, all fuctions can be working in windows
 Examples :
 
 
-	 // initalize objects 
+	  // initalize objecects 
         Mapix mapi;
 
         /* mapi login */
         if(mapi.login())
         {
-                cout << "login mapi successfully" << endl;
+                cout << "MAPI Logon successfully" << endl;
                 /* opern root folder */
                 if(mapi.openRootFolder())
                 {
@@ -83,10 +83,19 @@ Examples :
                                                 cout<<mapi.getSenderTime()<<endl;
                                         }
                                 }
+                                else
+                                        cout << mapi.getCurrentError() << endl;
                         }
+                        else
+                                cout << mapi.getCurrentError() << endl;
                 }
+                else
+                        cout << mapi.getCurrentError() << endl;
         }
         if(mapi.logout())
-        	cout << "mapi logout successfully";
+                cout << "MAPi Logoff successfully" << endl;
+        else
+                cout << mapi.getCurrentError() << endl;
+
 
 	
