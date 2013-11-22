@@ -17,7 +17,7 @@ features:
 	
 Functions:
 
-Note: Here, all fuctions can be workking in windows
+Note: Here, all fuctions can be working in windows
 
 	1. bool login():
 		login to mapi api
