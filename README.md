@@ -40,13 +40,13 @@ Note: Here, all fuctions can be working in windows
 Examples :
 
 
-	 // initalize objecects 
+	 // initalize objects 
         Mapix mapi;
 
         /* mapi login */
         if(mapi.login())
         {
-                cout << "login mapi sucessfully" << endl;
+                cout << "login mapi successfully" << endl;
                 /* opern root folder */
                 if(mapi.openRootFolder())
                 {
@@ -73,5 +73,6 @@ Examples :
                 }
         }
         if(mapi.logout())
+        	cout << "mapi logout successfully";
 
 	
