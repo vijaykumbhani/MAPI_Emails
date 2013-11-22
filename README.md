@@ -34,7 +34,21 @@ Note: Here, all fuctions can be working in windows
 	5. bool getInboxMailContent()
 		to get all emails one by one 
 		ex : senderName, senderEmail, senderSubjects, senderBody, senderReceivedTime
-		
+
+	6. CString getSenderName()
+		get sender name
+
+	7. CString getSenderEmail()
+		get sender email
+
+	8. CString getSenderSubject()
+		get sender subjects 
+	
+	9. CString getSenderBody()
+		get sender body
+
+	10. CString getSenderTime()
+		get sender received time 
 		
 		
 Examples :
