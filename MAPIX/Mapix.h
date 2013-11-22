@@ -1,41 +1,40 @@
 #include <Windows.h>
 #include <MAPIDefS.h>
 #include <MAPIX.h>
-#include <afx.h>
 
 #pragma once
-
 #pragma comment(lib, "mapi32.lib")
+
+#define INBOX L"Inbox"
 
 class Mapix
 {
 private:
-	
-	LPMAPISESSION m_lpSession;
-	
-	LPMDB m_lpMsgstore;
-	LPMDB m_lpInboxMsgStore;
-
-	LPMAPITABLE m_lpTable;
-	LPMAPITABLE m_inboxTable;
-
-	LPMAPIFOLDER m_lpFolder;
-
-	LPSRowSet m_lpRows;
-
+	/* common result */
 	HRESULT result;
 
+	/* MAPI Pointer */
+	LPMAPISESSION m_lpSession;
+	LPMAPITABLE m_lpTable, m_lpInboxTable;
+	LPMDB m_lpMsgstore, m_lpInboxMsgStore;
+	LPSRowSet m_lpRows;
+	LPMAPIFOLDER m_lpFolder;
 	SBinary sBin;
 
+	/* some constant */
 	CString errorDetails;
 	
-	bool selectFlag;
-	ULONG inboxRowCount;
+	bool  selectedFlag;
+	unsigned long int  inboxRowCount;
+	
 	CString senderName,senderEmail, senderSubject, senderBody, SenderReceivedTime;
 
-public:
-	static int cols;
 
+public:
+	/* common count */
+	static unsigned long int  cols;
+
+	/* mails details structure */
 	typedef struct 
 	{
 		CString senderName;
@@ -48,9 +47,13 @@ public:
 	Mapix(void);
 	~Mapix(void);
 
-	void clearCommonObjects();
+	void  clearCommonObjects();
+	void  setError(HRESULT);
 	void freeRows(LPSRowSet);
-	void setError(HRESULT);
+	void  clearAllObjects();
+	
+	LPMDB getInboxMsgStoreObject();
+	LPMAPISESSION getCurrentSession();
 
 	bool login();
 	bool logout();
@@ -60,12 +63,12 @@ public:
 	bool getInboxContent(LPMDB);
 	bool getInboxMailContent();
 
-	CString getCurrentError();
-	LPMDB getInboxMsgStoreObject();
-	ULONG getRowCountInInboxFolder(LPMDB);
-	CString getTimeToFileTimeObjects(FILETIME);
+	unsigned long int  getRowCountInInboxFolder(LPMDB);
 
+	CString getTimeToFileTimeObjects(FILETIME);
+	CString getCurrentError();
 	
+	/* make structure objects */
 	MailContent *contentOfMessage;
 
 	/* get personal mail content */

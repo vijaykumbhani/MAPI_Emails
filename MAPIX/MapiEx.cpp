@@ -7,6 +7,7 @@
 #include <afx.h>
 
 using namespace std;
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	// initalize objecects 
@@ -38,10 +39,19 @@ int _tmain(int argc, _TCHAR* argv[])
 						cout<<mapi.getSenderTime()<<endl;
 					}
 				}
+				else
+					cout << mapi.getCurrentError() << endl;
 			}
+			else
+				cout << mapi.getCurrentError() << endl;
 		}
+		else
+			cout << mapi.getCurrentError() << endl;
 	}
 	if(mapi.logout())
+		cout << "MAPi Logoff Successfully" << endl;
+	else
+		cout << mapi.getCurrentError() << endl;
 	return 0;
 }
 
