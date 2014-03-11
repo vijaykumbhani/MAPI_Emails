@@ -54,7 +54,7 @@ Note: Here, all fuctions can be working in windows
 Examples :
 
 
-	  // initalize objecects 
+	  // initalize objects 
         Mapix mapi;
 
         /* mapi login */
